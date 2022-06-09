@@ -1,8 +1,9 @@
 .idea/
 target/
-frontend/node_modules/
+node_modules/
 .mvn/
 HELP.md
 mvnw
 mvnw.cmd
 MeusGastos.iml
+node_modules
