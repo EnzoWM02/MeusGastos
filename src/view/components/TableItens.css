@@ -54,6 +54,6 @@ tabela {
       color: #ffffff
     }
 
-    .outside {
-        border-radius: 150px !important;
-    }
+.outside {
+    background-color: #1E1C2C !important;
+}

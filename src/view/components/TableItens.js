@@ -9,6 +9,7 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import FilterDialog from './FilterDialog';
+import MonthList from './MonthList';
 import ItensRow from '../components/ItensRow';
 import Tooltip from '@mui/material/Tooltip';
 import { useCookies } from "react-cookie";
@@ -88,6 +89,7 @@ const TableItens = () => {
     return (
 
             <div className="outside">
+                <MonthList />
                 <div className="TableItens">
                     <Button className="createButton filledButtonCreate" variant="contained" onClick={toGo}>
                         Cadastrar novo item
