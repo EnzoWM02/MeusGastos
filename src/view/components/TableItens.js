@@ -66,10 +66,15 @@ const TableItens = () => {
             })
         }
             setItens(response);
+
             let total = 0;
-            response.map(function (key, index) {
-                total += response[index].value;
+
+            response.forEach(function(item) {
+                if (item.user_id == cookies.userid) {
+                    total += item.value;
+                }
             })
+
             setTotal(total);
         }
         catch (error) {
