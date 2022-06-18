@@ -13,10 +13,55 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './ItensRow.css';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useConfirm } from 'material-ui-confirm';
 
 const ItensRow = ({item, fetchItensAxios}) => {
 
+    const confirm = useConfirm();
     const navigate = useNavigate();
+
+    //this method defines properties for the dialog
+    const handleDelete = () => {
+        confirm({ 
+            title: 'Você tem certeza?',
+            description: '',
+            confirmationText: 'Sim',
+            cancellationText: 'Não',
+            dialogProps: {
+                sx:{width: '20%', left: '40%'},
+                PaperProps:{sx:{backgroundImage: 'linear-gradient(#5b467e, #2E2944)', borderRadius: '20px'}}
+            },
+            titleProps: {
+                sx: {color: 'white'}
+            },
+            confirmationButtonProps: {
+                sx: {
+                    backgroundImage: 'linear-gradient(to bottom right, #AB66D0, #cf58b5)',
+                    borderRadius: '20px', 
+                    color: 'white',
+                    "&:hover": {
+                        backgroundImage: 'linear-gradient(to bottom right, #cf58b5, #AB66D0)',
+                        color: 'black'
+                    }
+                }
+            },
+            cancellationButtonProps: {
+                sx: {
+                    backgroundImage: 'linear-gradient(to bottom right, #AB66D0, #cf58b5)',
+                    marginRight: '5px',
+                    borderRadius: '20px', 
+                    color: 'white',
+                    "&:hover": {
+                        backgroundImage: 'linear-gradient(to bottom right, #cf58b5, #AB66D0)',
+                        color: 'black'
+                    }
+                }
+            }
+
+        })
+          .then(() => { deleteRow() })
+          .catch(() => { /* ... */ });
+      };
 
         const deleteRow = async () => {
             let url = process.env.REACT_APP_API_URL_GASTOS + '/' + item.id;
@@ -60,7 +105,7 @@ const ItensRow = ({item, fetchItensAxios}) => {
                         sx={{ mr: 2 }}
                         id="events-button"
                         className="lineIcons"
-                        onClick={deleteRow}
+                        onClick={handleDelete}
                     >
                         <DeleteIcon />
                     </IconButton>
