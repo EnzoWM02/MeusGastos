@@ -1,3 +1,15 @@
 .TableCell {
     color: #ffffff !important
 }
+
+.filledButtonVoltar {
+    border-radius: 100px !important; 
+    border: none !important;
+    background-image: linear-gradient(to bottom right, #46016b, #70105b) !important;
+    color: #ffffff !important;
+  }
+  
+  .filledButtonVoltar:hover {
+    background-image: linear-gradient(to bottom right, #70105b, #46016b) !important;
+    color: #7a7a7a !important;
+  }
